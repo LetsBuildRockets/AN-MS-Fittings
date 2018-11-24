@@ -1,5 +1,2 @@
-for f in ./*/*.stl;
-	do
-        mv -v $f $(echo "$f" | sed -e 's/.ipt.stl/.stl/');
-        mv -v $f $(echo "$f" | sed -e 's/.iam.stl/.stl/');
-done;
+find . -name '*.ipt.stl' -exec sh -c 'mv -v "$0" "${0%.ipt.stl}.stl"' {} \;
+find . -name '*.iam.stl' -exec sh -c 'mv -v "$0" "${0%.iam.stl}.stl"' {} \;
